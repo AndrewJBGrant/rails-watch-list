@@ -1,0 +1,38 @@
+<div class="container">
+
+<h1>Welcome to watch list</h1>
+
+  <p class="btn-more-info"><%= link_to "Add list", new_list_path(@bookmark) %></p>
+  </div>
+
+
+<div class="movie-category">
+  <p class="category-title">MY LISTS</p>
+</div>
+
+<div class="container">
+
+<div class="lists">
+  <% @lists.each do |list| %>
+  <div class="left-border">
+
+    <div>
+      <div class="list-box">
+        <div class="row">
+          <div class="col-lg-6">
+            <h3 class="list-title"><%= list.name %> List</h3>
+            <p class="click-text-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac interdum tellus. </p>
+            <span class="click">
+              <%= link_to "More info", list_path(list), class:"btn-click"%>
+            </span>
+
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <% end %>
+</div>
+
+</div>
