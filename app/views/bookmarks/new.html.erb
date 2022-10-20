@@ -1,1 +1,8 @@
-<%= render 'form', bookmark: @bookmark %>
+<div class="container">
+        <h3>New movie for your <%= @list.name %> list</h3>
+        <%= simple_form_for [@list, @bookmark] do |f| %>
+          <%= f.input :comment, placeholder: 'Leave a comment' %>
+          <%= f.association :movie, prompt: "Select a movie", input_html: {data: { controller: "tom-select"}} %>
+          <%= f.submit class: "btn btn-primary" %>
+        <% end %>
+      </div>

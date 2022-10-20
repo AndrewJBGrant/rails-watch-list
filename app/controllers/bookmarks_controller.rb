@@ -1,14 +1,13 @@
 class BookmarksController < ApplicationController
-
-  def index
-    @bookmarks = Bookmark.all
-  end
-
-  def show
-  end
+  before_action :set_list, only: [:new, :create]
+  before_action :set_bookmark, only: :destroy
 
   def new
     @bookmark = Bookmark.new
+  end
+
+  def index
+    @bookmarks = Bookmark.all
   end
 
   def create
@@ -23,12 +22,20 @@ class BookmarksController < ApplicationController
 
   def destroy
     @bookmark.destroy
-    redirect_to list_path(@bookmark)
+    redirect_to list_path(@bookmark.list), status: :see_other
   end
 
   private
 
   def bookmark_params
-    params.require(:bookmark).permit(:comment, :movie_id, :list_id)
+    params.require(:bookmark).permit(:comment, :movie_id)
+  end
+
+  def set_bookmark
+    @bookmark = Bookmark.find(params[:id])
+  end
+
+  def set_list
+    @list = List.find(params[:list_id])
   end
 end

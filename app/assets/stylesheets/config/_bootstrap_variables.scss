@@ -4,18 +4,18 @@
 // 3. You can override them below!
 
 // General style
-$font-family-sans-serif:  $body-font;
+$headings-font-family:  $body-font;
 $headings-font-family:    $headers-font;
-$body-bg:                 $light-gray;
+$body-bg:                 $four;
 $font-size-base: 1rem;
 
 // Colors
-$body-color: $gray;
-$primary:    $blue;
+$body-color: $four;
+$primary:    $three;
 $success:    $green;
-$info:       $yellow;
-$danger:     $red;
-$warning:    $orange;
+$info:       $two;
+$danger:     $three;
+$warning:    $four;
 
 // Buttons & inputs' radius
 $border-radius:    2px;
@@ -23,3 +23,6 @@ $border-radius-lg: 2px;
 $border-radius-sm: 2px;
 
 // Override other variables below!
+.text{
+font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

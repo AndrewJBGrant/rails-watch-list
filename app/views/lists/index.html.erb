@@ -1,38 +1,22 @@
 <div class="container">
-
+<div class="main-title">
 <h1>Welcome to watch list</h1>
-
-  <p class="btn-more-info"><%= link_to "Add list", new_list_path(@bookmark) %></p>
-  </div>
-
-
-<div class="movie-category">
-  <p class="category-title">MY LISTS</p>
 </div>
 
-<div class="container">
-
-<div class="lists">
-  <% @lists.each do |list| %>
-  <div class="left-border">
-
-    <div>
-      <div class="list-box">
-        <div class="row">
-          <div class="col-lg-6">
-            <h3 class="list-title"><%= list.name %> List</h3>
-            <p class="click-text-content">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi ac interdum tellus. </p>
-            <span class="click">
-              <%= link_to "More info", list_path(list), class:"btn-click"%>
-            </span>
-
+<div class="container py-5">
+  <div class="d-flex align-items-center justify-content-between mb-3">
+    <h3 class="mb-0">My Lists</h3>
+    <%= link_to "Create a new list", new_list_path, class: "btn btn-primary" %>
+  </div>
+  <div class="row">
+    <% @lists.each do |list| %>
+      <div class="co-12 col-sm-6 col-md-4 mb-3">
+        <%= link_to list_path(list), class:"text-decoration-none" do %>
+          <div class="card-category">
+            <%= list.name.capitalize %>
           </div>
-        </div>
+        <% end %>
       </div>
-
-    </div>
+    <% end %>
   </div>
-  <% end %>
-</div>
-
 </div>
